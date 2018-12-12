@@ -1,13 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">bottom line</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pin_code">PIN CODE</string>
     <string name="sign_in">Sign in</string>
     <string name="or_put_your_finger_to_fingerprint_scaner">or put your finger to fingerprint scaner</string>
     <string name="i_is_my_first_time">I IS MY FIRST TIME</string>
-    <string name="create_new_account_confirm_text">If you already have a Bottom line account, do not continue, because if you will create new pin code or save your fingerprint (again), your previous Bottom line account will be deleted.\n\nAre you sure you want to continue?</string>
+    <string name="create_new_account_confirm_text">If you already have a Bottom line account, do not continue, because if you will create new pin code or save your fingerprint (again), your previous Bottom line account will be deleted. Are you sure you want to continue?</string>
     <string name="yes_i_sure_let_s_continue">YES I SURE, LET\'S CONTINUE</string>
     <string name="enter_your_new_pin_code_4_digits">Enter your new pin code (4 digits)</string>
     <string name="continue_text">Continue</string>

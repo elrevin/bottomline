@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorWhite">#FFF</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorStartScreenBg">#995dff</color>
+    <color name="colorStartScreenEditTextBg">#FFF</color>
+    <color name="colorStartScreenEditTextBorder">#5E00FF</color>
+    <color name="colorDarkVioletButtonBg">#7321FF</color>
+    <color name="colorDarkVioletButtonBorder">#5E00FF</color>
+    <color name="colorDarkVioletButtonText">#FFF</color>
+    <color name="colorLightVioletButtonBg">#AB7BFF</color>
+    <color name="colorLightVioletButtonBorder">#7B2FFC</color>
+    <color name="colorLightVioletButtonText">#FFF</color>
+
 </resources>
