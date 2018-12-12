@@ -1,22 +1,54 @@
 package me.elrevin.bottomline.ui.start
 
 import android.app.FragmentTransaction
+import android.arch.lifecycle.Observer
+import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import me.elrevin.bottomline.R
+import me.elrevin.bottomline.db.BlDataBase
+import me.elrevin.bottomline.db.User
+import uy.kohesive.injekt.Injekt
+import uy.kohesive.injekt.api.get
 
 class StartActivity : AppCompatActivity()
         , FirstFragment.OnFirstFragmentInteractionListener
         , SignUpFragment.OnSignUpFragmentInteractionListener
         , SignUp2Fragment.OnSignUp2FragmentInteractionListener
 {
+    override fun onGoneFromFirstFragment() {
+        Toast.makeText(this, "Enter", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onSignIn(pin: String, handler: ((soHow: Boolean) -> Unit)?) {
+        db.userDao().getUser()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe {
+                    if (handler != null) {
+                        handler(it != null)
+                    }
+                }
+    }
+
+    val db: BlDataBase = Injekt.get()
+
     override fun onGoToSignUp() {
         showSignUp2Fragment()
     }
 
-    override fun onSignUp() {
-        Toast.makeText(this, "Sign up", Toast.LENGTH_LONG).show()
+    override fun onSignUp(pin: String) {
+        Completable.fromAction {
+            db.userDao().insertUser(User(1, pin))
+        }.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe {
+                    Toast.makeText(this, "Sign up with pin" + pin, Toast.LENGTH_LONG).show()
+                }
     }
 
     var firstFragment: FirstFragment ?= null

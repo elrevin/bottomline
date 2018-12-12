@@ -51,8 +51,9 @@ class SignUp2Fragment : Fragment() {
         }
 
         btnContinue.setOnClickListener {
+            val pin: String = etPinCode.text.toString()
             outAnimate {
-                listener?.onSignUp()
+                listener?.onSignUp(pin)
             }
         }
 
@@ -137,7 +138,7 @@ class SignUp2Fragment : Fragment() {
 
     interface OnSignUp2FragmentInteractionListener {
         fun onBackToFirstFragment()
-        fun onSignUp()
+        fun onSignUp(pin: String)
     }
 
     companion object {

@@ -4,6 +4,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorErrorBg">#ffb3b6</color>
     <color name="colorStartScreenBg">#995dff</color>
     <color name="colorStartScreenEditTextBg">#FFF</color>
     <color name="colorStartScreenEditTextBorder">#5E00FF</color>

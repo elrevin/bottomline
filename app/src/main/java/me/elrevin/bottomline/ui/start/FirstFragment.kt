@@ -51,9 +51,9 @@ class FirstFragment : Fragment() {
         ivLogo.scaleY = 0F
         ivLogo.alpha = 0F
 
-        val enPinCode = view.findViewById<EditText>(R.id.etPinCode)
-        enPinCode.translationY = 700F
-        enPinCode.alpha = 0F
+        val etPinCode = view.findViewById<EditText>(R.id.etPinCode)
+        etPinCode.translationY = 700F
+        etPinCode.alpha = 0F
 
         val btnSignIn = view.findViewById<Button>(R.id.btnSignIn)
         btnSignIn.translationY = 700F
@@ -75,6 +75,19 @@ class FirstFragment : Fragment() {
             outAnimate {
                 listener?.onSignUpRequest()
             }
+        }
+
+        btnSignIn.setOnClickListener {
+            val pin: String = etPinCode.text.toString()
+            listener?.onSignIn(pin, {
+                if (it) {
+                    outAnimate {
+                        listener?.onGoneFromFirstFragment()
+                    }
+                } else {
+                    etPinCode.setBackgroundResource(R.color.colorErrorBg)
+                }
+            })
         }
 
         return view
@@ -191,8 +204,9 @@ class FirstFragment : Fragment() {
      * for more information.
      */
     interface OnFirstFragmentInteractionListener {
-        // TODO: Update argument type and name
         fun onSignUpRequest()
+        fun onSignIn(pin: String, handler: ((soHow: Boolean) -> Unit)?)
+        fun onGoneFromFirstFragment()
     }
 
     companion object {
